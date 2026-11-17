@@ -1,0 +1,27 @@
+{
+  "name": "futpadel",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Futpadel - football meets padel. 3D multiplayer game (Three.js + Electron + Colyseus).",
+  "workspaces": [
+    "client",
+    "server",
+    "shared"
+  ],
+  "scripts": {
+    "dev:server": "npm --workspace server run dev",
+    "dev:client": "npm --workspace client run dev",
+    "start": "concurrently -k -n SERVER,CLIENT -c green,cyan \"npm run dev:server\" \"npm run dev:client\"",
+    "build:client": "npm --workspace client run build",
+    "dev:web": "concurrently -k -n SERVER,WEB \"npm run dev:server\" \"npm --workspace client run dev:vite\"",
+    "test": "node --test server/test/*.test.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "author": "Joa",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12"
+  }
+}

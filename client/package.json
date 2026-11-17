@@ -1,0 +1,26 @@
+{
+  "name": "@futpadel/client",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Futpadel client — Electron + Three.js",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "concurrently -k -n VITE,ELECTRON -c magenta,cyan \"npm:dev:vite\" \"npm:dev:electron\"",
+    "dev:vite": "vite",
+    "dev:electron": "wait-on tcp:127.0.0.1:5173 && cross-env NODE_ENV=development electron .",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@colyseus/sdk": "0.18.10",
+    "cannon-es": "^0.20.0",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "45.3.3",
+    "vite": "7.3.8",
+    "wait-on": "^7.2.0"
+  }
+}
